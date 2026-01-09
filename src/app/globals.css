@@ -4,7 +4,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,6 +14,7 @@
   }
 }
 
+html, body { height: 100%; }
 body {
   color: var(--foreground);
   background: var(--background);
@@ -21,7 +22,5 @@ body {
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  .text-balance { text-wrap: balance; }
 }
