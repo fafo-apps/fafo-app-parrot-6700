@@ -1,4 +1,4 @@
-import { pool, withSchema } from '@/app/db/pool';
+import { getPool, withSchema } from '@/app/db/pool';
 
 export type Product = {
   id: number;
@@ -21,7 +21,7 @@ export async function listProducts(): Promise<Product[]> {
     order by created_at desc
     limit 24;
   `);
-  const { rows } = await pool.query(sql);
+  const { rows } = await getPool().query(sql);
   return rows as Product[];
 }
 
@@ -32,6 +32,6 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
     where slug = $1
     limit 1;
   `);
-  const { rows } = await pool.query(sql, [slug]);
+  const { rows } = await getPool().query(sql, [slug]);
   return (rows[0] as Product) || null;
 }
