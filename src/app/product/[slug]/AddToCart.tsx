@@ -2,10 +2,12 @@
 
 type Product = { slug: string; name: string; price_cents: number; image_url?: string | null };
 
+type CartItem = { slug: string; name: string; price_cents: number; image_url?: string | null; qty: number };
+
 export default function AddToCart({ product }: { product: Product }) {
   const add = () => {
     const raw = localStorage.getItem('cart');
-    const items: Array<any> = raw ? JSON.parse(raw) : [];
+    const items: CartItem[] = raw ? JSON.parse(raw) : [];
     const existing = items.find((i) => i.slug === product.slug);
     if (existing) {
       existing.qty += 1;

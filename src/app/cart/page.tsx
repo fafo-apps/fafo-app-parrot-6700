@@ -2,6 +2,7 @@
 
 export const dynamic = 'force-dynamic';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 type CartItem = { slug: string; name: string; price_cents: number; image_url?: string | null; qty: number };
@@ -32,7 +33,7 @@ export default function CartPage() {
     <div className="mx-auto max-w-6xl px-4 py-8">
       <h1 className="text-2xl font-semibold mb-6">Your Cart</h1>
       {items.length === 0 ? (
-        <p>Your cart is empty. <a className="underline" href="/">Shop hoodies</a>.</p>
+        <p>Your cart is empty. <Link className="underline" href="/">Shop hoodies</Link>.</p>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-6">

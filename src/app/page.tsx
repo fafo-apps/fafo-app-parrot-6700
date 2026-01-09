@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ProductCard from '@/app/components/ProductCard';
 import { listProducts } from '@/app/db/repositories/ProductsRepository';
 
@@ -13,7 +14,7 @@ export default async function Home() {
           <div className="max-w-xl">
             <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight">Premium Hoodies for Everyday Comfort</h1>
             <p className="mt-4 text-neutral-600 dark:text-neutral-300">Minimal design. Maximum comfort. Built to last and made to move with you.</p>
-            <a href="#shop" className="inline-block mt-6 bg-black text-white dark:bg-white dark:text-black rounded-lg px-5 py-3 font-medium hover:opacity-90">Shop now</a>
+            <Link href="#shop" className="inline-block mt-6 bg-black text-white dark:bg-white dark:text-black rounded-lg px-5 py-3 font-medium hover:opacity-90">Shop now</Link>
           </div>
           <div className="hidden md:block aspect-square rounded-3xl overflow-hidden border border-black/5 dark:border-white/10 shadow-sm">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -25,7 +26,7 @@ export default async function Home() {
       <section id="shop" className="mx-auto max-w-6xl px-4 py-12">
         <div className="flex items-end justify-between mb-6">
           <h2 className="text-2xl font-semibold">Latest Drops</h2>
-          <a href="#" className="text-sm underline">View all</a>
+          <Link href="#" className="text-sm underline">View all</Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((p) => (
